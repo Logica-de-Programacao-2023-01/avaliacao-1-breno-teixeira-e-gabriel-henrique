@@ -1,5 +1,12 @@
 package q5
 
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
+
 //Pedro começou a frequentar aulas de programação. Na primeira aula, sua tarefa foi escrever um programa simples. O
 //programa deveria fazer o seguinte: na sequência de caracteres fornecida, composta por letras latinas maiúsculas e
 //minúsculas, ele:
@@ -15,6 +22,23 @@ package q5
 //Ajude Pedro a lidar com esta tarefa fácil.
 
 func ProcessString(s string) string {
-	// Seu código aqui
+	var vogais = "AEIOUaeiou"
+
+	var consoantes = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz"
+
+	scanner := bufio.NewScanner(os.Stdin)
+	fmt.Println("Digite uma sequência de caracteres: ")
+	scanner.Scan()
+	sequencia := scanner.Text()
+	for _, vogal := range vogais {
+		sequencia = strings.ReplaceAll(sequencia, string(vogal), "")
+
+	}
+	for _, consoantes := range consoantes {
+		sequencia = strings.ReplaceAll(sequencia, string(consoantes), "."+string(consoantes))
+
+	}
+	sequencia = strings.ToLower(sequencia)
+
 	return ""
 }
