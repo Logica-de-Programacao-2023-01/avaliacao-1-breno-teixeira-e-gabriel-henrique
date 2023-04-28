@@ -15,7 +15,9 @@ import "fmt"
 //Se M ou N forem iguais ou menores que 0, a função deve retornar um erro.
 
 func DominoPieces(m, n int) (int, error) {
-	if m <= 0 && n <= 0 {
+	if m <= 0 {
+		return 0, fmt.Errorf("impossível")
+	} else if n <= 0 {
 		return 0, fmt.Errorf("impossível")
 	}
 
